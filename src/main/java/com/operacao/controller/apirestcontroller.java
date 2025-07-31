@@ -6,12 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping("/api/operacao/")
 public class apirestcontroller {
-
     @GetMapping("/")
-    public Integer soma(){
-        return 3 + 3;
+    public String soma(){
+        return "O Valor da Soma e 3";
     }
     
 }
