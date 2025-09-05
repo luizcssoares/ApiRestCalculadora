@@ -16,9 +16,5 @@ public class ApirestcalculadoraApplication  extends SpringBootServletInitializer
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(ApirestcalculadoraApplication.class, args);
-	}
-	@RequestMapping("/")
-	private String Soma(){
-		return "Soma e 20";
-	}
+	}	
 }

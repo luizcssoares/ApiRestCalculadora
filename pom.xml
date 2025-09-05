@@ -11,7 +11,7 @@
 	<groupId>com.operacao</groupId>
 	<artifactId>apirestcalculadora</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>apirestcalculadora</name>
 	<description>apirestcalculadora</description>
 	<url/>

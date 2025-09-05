@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apirestcalculadora
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: apirestcalculadora
+  template:
+    metadata:
+      labels:
+        app: apirestcalculadora
+    spec:
+      containers:
+      - name: apirestcalculadora
+        image: luizcssoares/apirestcalculadora:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
