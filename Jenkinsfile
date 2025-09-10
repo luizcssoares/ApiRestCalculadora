@@ -9,7 +9,7 @@ pipeline {
 	stages { 
 		stage('GIT pull') {
 			steps{
-			   git url: "https://github.com/luizcssoares/apirestcalculadora.git"
+			   git url: "https://github.com/luizcssoares/ApiRestCalculadora.git"
 			}
 		}
 		stage('Build Maven') {
