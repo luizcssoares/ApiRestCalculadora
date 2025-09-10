@@ -9,7 +9,7 @@ pipeline {
 	stages { 
 		stage('GIT pull') {
 			steps{
-			   git url: "https://github.com/luizcssoares/ApiRestCalculadora.git"
+			   git url: "https://github.com/luizcssoares/apirestcalculadora.git"
 			}
 		}
 		stage('Build Maven') {
@@ -42,12 +42,14 @@ pipeline {
         stage('Deploy App on k8s') {
             steps {
 				script {				  
-						withKubeConfig([credentialsId: 'secrets', 
-								serverUrl: 'https://127.0.0.1:38709', 
-								namespace: 'jenkins',
-								clusterName: 'kind-control-plane']) {
-						sh 'kubectl apply -f deployment.yaml'
-						sh 'kubectl apply -f service.yaml'
+						//withKubeConfig([credentialsId: 'secrets', 
+						//		serverUrl: 'https://127.0.0.1:38709', 
+						//		namespace: 'jenkins',
+						//		clusterName: 'kind-control-plane']) {
+						//sh 'kubectl apply -f deployment.yaml'
+						//sh 'kubectl apply -f service.yaml'
+						sh 'Helm Install /chart/apirestcalculadora .'
+						sh 'kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml'
 						}               				  
 				}
             }
