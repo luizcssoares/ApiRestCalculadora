@@ -50,11 +50,10 @@ pipeline {
 						//sh 'kubectl apply -f service.yaml'
 						//sh 'helm version'
 						dir('src') {
-						   sh 'pwd'
+						   sh 'ls'
 						}
 						//sh 'cd src'
-						//sh 'pwd'
-						sh 'ls'
+						//sh 'pwd'						
 						//sh 'cd chart'						
 						//sh 'ls'
 						//sh 'helm install apirestcalculadora .'
