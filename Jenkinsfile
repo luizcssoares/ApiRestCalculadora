@@ -50,7 +50,9 @@ pipeline {
 						//sh 'kubectl apply -f service.yaml'
 						//sh 'helm version'
 						dir('src') {
-						   sh 'ls'
+							dir ('chart') {
+						      sh 'ls'
+							}
 						}
 						//sh 'cd src'
 						//sh 'pwd'						
