@@ -49,11 +49,11 @@ pipeline {
 						//sh 'kubectl apply -f deployment.yaml'
 						//sh 'kubectl apply -f service.yaml'
 						//sh 'helm version'
-						//dir('src') {
-						//   sh 'pwd'
-						//}
-						sh 'cd src'
-						sh 'pwd'
+						dir('src') {
+						   sh 'pwd'
+						}
+						//sh 'cd src'
+						//sh 'pwd'
 						sh 'ls'
 						//sh 'cd chart'						
 						//sh 'ls'
