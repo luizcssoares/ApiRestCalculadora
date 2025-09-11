@@ -49,10 +49,14 @@ pipeline {
 						//sh 'kubectl apply -f deployment.yaml'
 						//sh 'kubectl apply -f service.yaml'
 						//sh 'helm version'
+						//dir('src') {
+						//   sh 'pwd'
+						//}
 						sh 'cd src'
+						sh 'pwd'
 						sh 'ls'
-						sh 'cd chart'						
-						sh 'ls'
+						//sh 'cd chart'						
+						//sh 'ls'
 						//sh 'helm install apirestcalculadora .'
 						//sh 'kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml'
 				}
