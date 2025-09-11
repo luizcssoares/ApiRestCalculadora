@@ -51,7 +51,9 @@ pipeline {
 						//sh 'helm version'
 						dir('src') {
 							dir ('chart') {
-						      sh 'ls'
+							    sh 'helm install apirestcalculadora .'
+						        sh 'kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml'
+						        //sh 'ls'
 							}
 						}
 						//sh 'cd src'
