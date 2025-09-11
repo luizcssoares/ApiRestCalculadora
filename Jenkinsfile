@@ -7,9 +7,9 @@ pipeline {
 		docker_image = ''
 	}
 	stages { 
-		stage('GIT pull') {
+		stage('GIT pull') {			
 			steps{
-			   git url: "https://github.com/luizcssoares/ApiRestCalculadora.git"
+			   git branch: 'main', url: "https://github.com/luizcssoares/ApiRestCalculadora.git"
 			}
 		}
 		stage('Build Maven') {
