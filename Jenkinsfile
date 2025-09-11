@@ -48,7 +48,7 @@ pipeline {
 						//		clusterName: 'kind-control-plane']) {
 						//sh 'kubectl apply -f deployment.yaml'
 						//sh 'kubectl apply -f service.yaml'
-						sh 'Helm Install /chart/apirestcalculadora .'
+						sh 'Helm Install /src/chart/apirestcalculadora .'
 						sh 'kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml'						               				  
 				}
             }
