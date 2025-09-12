@@ -50,11 +50,14 @@ pipeline {
 						//sh 'kubectl apply -f service.yaml'
 						//sh 'helm version'
 						//dir('src') {
+
+                         withCredentials([string(credentialsId: 'secrets', variable: KUBE_SA_TOKEN)]) {	
 							dir ('chart') {
 								sh 'ls'
 							    sh 'helm install apirestcalculadora .'
 						        //sh 'kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml'						        
 							}
+						 }
 						//}						
 				}
             }
