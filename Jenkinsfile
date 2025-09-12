@@ -62,9 +62,9 @@ pipeline {
 						//}
 
                          dir ('chart') {
-                            //sh 'helm upgrade --install apirestcalculadora chart --set image.repository=apirestcalculadora --set image.tag=latest'
+                            sh 'helm upgrade --install apirestcalculadora chart --set image.repository=apirestcalculadora --set image.tag=latest'
 						    //sh 'helm upgrade apirestcalculadora .'
-							sh 'helm install apirestcalculadora .'
+							//sh 'helm install apirestcalculadora .'
 						 }
 						
 				}
