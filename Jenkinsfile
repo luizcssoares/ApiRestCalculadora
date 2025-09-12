@@ -62,7 +62,7 @@ pipeline {
 						//}
 
                          dir ('chart') {
-						    sh 'helm upgrade --install $docker_image apirestcalculadora --namespace $NAMESPACE --set image.repository=$IMAGE_NAME --set image.tag=$IMAGE_TAG'
+						    sh 'helm upgrade apirestcalculadora .'
 						 }
 						
 				}
