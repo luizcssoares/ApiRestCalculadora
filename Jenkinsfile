@@ -54,7 +54,7 @@ pipeline {
 					   //    echo 'Chibata Preta'
 					   //  }
                    
-                        withKubeConfig([credentialsId: 'kubeconfig',                        
+                        withKubeConfig([credentialsId: 'Kubeconfig',                        
 								serverUrl: 'https://127.0.0.1:32771', 
 								namespace: 'default',
 								clusterName: 'minikube']) {	
