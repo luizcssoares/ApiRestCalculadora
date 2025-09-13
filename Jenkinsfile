@@ -45,7 +45,7 @@ pipeline {
             steps {
 				script {				  						
 
-					    withKubeConfig([credentialsId: 'Kubeconfig', serverUrl: 'https://127.0.0.1:32771']) {
+					    withKubeConfig([credentialsId: 'secrets', serverUrl: 'https://127.0.0.1:32771']) {
 						    echo 'Chibata Preta'
 					    }
                    
