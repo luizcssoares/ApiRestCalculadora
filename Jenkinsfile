@@ -53,18 +53,21 @@ pipeline {
 					   //	 }
 					   //    echo 'Chibata Preta'
 					   //  }
-                   
-                        withKubeConfig([credentialsId: 'minikube-secret',                         
-								serverUrl: 'https://127.0.0.1:32776', 
-								namespace: 'default',
-								clusterName: 'minikube']) {	
-							dir ('chart') {
-								sh 'ls'
+                       withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {
+                          sh 'helm install apirestcalculadora .'
+                       }                       
+
+                       // withKubeConfig([credentialsId: 'minikube-secret',                         
+						//		serverUrl: 'https://127.0.0.1:32776', 
+						//		namespace: 'default',
+						//		clusterName: 'minikube']) {	
+						//	dir ('chart') {
+						//		sh 'ls'
 								//sh 'kubectl get pods'
-						        sh 'helm install apirestcalculadora . --kubeconfig ~/.kube/config'
+						 //       sh 'helm install apirestcalculadora . --kubeconfig ~/.kube/config'
 								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
-							}
-						}
+						//	}
+						//}
 				}
             }
         }
