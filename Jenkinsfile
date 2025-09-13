@@ -54,15 +54,15 @@ pipeline {
 					   //    echo 'Chibata Preta'
 					   //  }
                    
-                        withKubeConfig([credentialsId: 'minikube-secret',                        
+                        withKubeConfig([credentialsId: 'minikube-secret',                         
 								serverUrl: 'https://127.0.0.1:32771', 
 								namespace: 'default',
 								clusterName: 'minikube']) {	
 							dir ('chart') {
 								sh 'ls'
-								sh 'kubectl get pods'
+								//sh 'kubectl get pods'
 						        //sh 'helm install apirestcalculadora .'
-								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
+								sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
 							}
 						}
 				}
