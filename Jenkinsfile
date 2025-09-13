@@ -45,24 +45,24 @@ pipeline {
             steps {
 				script {				  						
 
-                       withCredentials([file(credentialsId: 'Kubeconfig', variable: 'KUBECONFIG')]) {
-							dir ('chart') {
-									sh 'ls'
+                      // withCredentials([file(credentialsId: 'Kubeconfig', variable: 'KUBECONFIG')]) {
+					//		dir ('chart') {
+					//				sh 'ls'
 									//sh 'helm install apirestcalculadora .'
-									sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
-								}
-					   }
+					//				sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
+					//			}
+					  // }
 
-                       //withKubeConfig([credentialsId: 'secrets',                        
-						//		serverUrl: 'https://127.0.0.1:32771', 
-					//			namespace: 'default',
-						//		clusterName: 'minikube']) {	
-						//	dir ('chart') {
-						//		sh 'ls'
+                        withKubeConfig([credentialsId: 'kubeconfig',                        
+								serverUrl: 'https://127.0.0.1:32771', 
+								namespace: 'default',
+								clusterName: 'minikube']) {	
+							dir ('chart') {
+								sh 'ls'
 							    //sh 'helm install apirestcalculadora .'
-						//		sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
-						//	}
-						//}
+								sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
+							}
+						}
 				}
             }
         }
