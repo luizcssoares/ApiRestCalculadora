@@ -44,31 +44,27 @@ pipeline {
         stage('Deploy App on k8s') {
             steps {
 				script {				  						
-
-                        withKubeConfig([credentialsId: KUBECONFIG]) {
-							sh 'kubectl config view'
-							sh 'kubectl get nodes'
-						}
-
-					    //withKubeConfig([credentialsId: 'secrets', serverUrl: 'https://127.0.0.1:32771']) {
-					//		dir ('chart') {
-					//			sh 'ls'
-					//		    sh 'helm install apirestcalculadora .'
-								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
-					//		}
-						    //echo 'Chibata Preta'
-					  //  }
+                
+					   // withKubeConfig([credentialsId: 'secrets', serverUrl: 'https://127.0.0.1:32771']) {
+					   //	 dir ('chart') {
+					   //	 	sh 'ls'
+					   //	     sh 'helm install apirestcalculadora .'
+							     //sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
+					   //	 }
+					   //    echo 'Chibata Preta'
+					   //  }
                    
-                        //withKubeConfig([credentialsId: 'kubeconfig',                        
-						//		serverUrl: 'https://127.0.0.1:32771', 
-						//		namespace: 'default',
-						//		clusterName: 'minikube']) {	
-						//	dir ('chart') {
-						//		sh 'ls'
-							    //sh 'helm install apirestcalculadora .'
-						//		sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
-						//	}
-						//}
+                        withKubeConfig([credentialsId: 'kubeconfig',                        
+								serverUrl: 'https://127.0.0.1:32771', 
+								namespace: 'default',
+								clusterName: 'minikube']) {	
+							dir ('chart') {
+								sh 'ls'
+								sh 'kubectl get pods'
+						        //sh 'helm install apirestcalculadora .'
+								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
+							}
+						}
 				}
             }
         }
