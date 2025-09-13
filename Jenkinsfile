@@ -46,7 +46,12 @@ pipeline {
 				script {				  						
 
 					    withKubeConfig([credentialsId: 'secrets', serverUrl: 'https://127.0.0.1:32771']) {
-						    echo 'Chibata Preta'
+							dir ('chart') {
+								sh 'ls'
+							    sh 'helm install apirestcalculadora .'
+								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
+							}
+						    //echo 'Chibata Preta'
 					    }
                    
                         //withKubeConfig([credentialsId: 'kubeconfig',                        
