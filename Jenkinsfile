@@ -61,7 +61,7 @@ pipeline {
 							dir ('chart') {
 								sh 'ls'
 								//sh 'kubectl get pods'
-						        sh 'helm install apirestcalculadora .'
+						        sh 'helm install apirestcalculadora . --kubeconfig ~/.kube/config'
 								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
 							}
 						}
