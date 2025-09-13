@@ -45,11 +45,11 @@ pipeline {
             steps {
 				script {				  						
 
-                        kubeconfig(credentialsId: 'kubeconfig') {
+                        kubeconfig(credentialsId: 'kubeconfig',
                         //withKubeConfig([credentialsId: 'secrets',
-						//		serverUrl: 'https://127.0.0.1:32771', 
-						//		namespace: 'default',
-						//		clusterName: 'minikube']) {	
+								serverUrl: 'https://127.0.0.1:32771', 
+								namespace: 'default',
+								clusterName: 'minikube']) {	
 							dir ('chart') {
 								sh 'ls'
 							    //sh 'helm install apirestcalculadora .'
