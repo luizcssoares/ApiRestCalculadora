@@ -45,7 +45,7 @@ pipeline {
             steps {
 				script {				  						
 
-                       withCredentials([file(credentialsId: 'secrets', variable: 'KUBECONFIG')]) {
+                       withCredentials([file(credentialsId: 'Kubeconfig', variable: 'KUBECONFIG')]) {
 							dir ('chart') {
 									sh 'ls'
 									//sh 'helm install apirestcalculadora .'
