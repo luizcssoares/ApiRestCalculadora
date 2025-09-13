@@ -59,8 +59,7 @@ pipeline {
 						//	    sh 'helm install apirestcalculadora .'
 						        //sh 'kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml'						        
 						//	}
-						//}
-						docker.withRegistry( '', dockerhub_credentials )
+						//}						
 
                          dir ('chart') {														
 							//sh 'helm registry login docker.io --username luizcssoares --password Lucas@2001'
