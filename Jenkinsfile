@@ -45,7 +45,7 @@ pipeline {
             steps {
 				script {				  						
 
-                        withKubeConfig([credentialsId: 'minikube',
+                        withKubeConfig([credentialsId: 'secrets',
                         //withKubeConfig([credentialsId: 'secrets',
 								serverUrl: 'https://127.0.0.1:32771', 
 								namespace: 'default',
