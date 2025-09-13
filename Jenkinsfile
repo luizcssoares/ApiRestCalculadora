@@ -43,15 +43,7 @@ pipeline {
 		}
         stage('Deploy App on k8s') {
             steps {
-				script {				  
-						//withKubeConfig([credentialsId: 'secrets', 
-						//		serverUrl: 'https://127.0.0.1:38709', 
-						//		namespace: 'jenkins',
-						//		clusterName: 'kind-control-plane']) {
-						//sh 'kubectl apply -f deployment.yaml'
-						//sh 'kubectl apply -f service.yaml'
-						//sh 'helm version'
-						//dir('src') {
+				script {				  						
 
                         withKubeConfig([credentialsId: 'secrets',
 								serverUrl: 'https://127.0.0.1:32771', 
@@ -59,15 +51,10 @@ pipeline {
 								clusterName: 'minikube']) {	
 							dir ('chart') {
 								sh 'ls'
-							    sh 'helm install apirestcalculadora .'
-						        //sh 'kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml'						        
+							    //sh 'helm install apirestcalculadora .'
+								sh 'helm upgrade --install apirestcalculadora chart --set image.repository=apirestcalculadora --set image.tag=latest'
 							}
-						}						
-
-                        //dir ('chart') {																					
-                        //    sh 'helm upgrade --install apirestcalculadora chart --set image.repository=apirestcalculadora --set image.tag=latest'						    
-						//}
-						
+						}
 				}
             }
         }
