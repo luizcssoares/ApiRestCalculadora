@@ -8,39 +8,7 @@ pipeline {
 		IMAGE_TAG = "latest"
         NAMESPACE = "default"
 	}
-	stages { 
-		stage('GIT pull') {			
-			steps{
-			   git branch: 'main', url: "https://github.com/luizcssoares/ApiRestCalculadora.git"
-			}
-		}
-		stage('Build Maven') {
-			steps {
-			   sh 'mvn -B -DskipTests clean package'
-			}
-		}
-		stage('SonarQube') {
-			steps {
-			   echo 'Executin SonarQube.'
-			}
-		}
-		stage('Docker Build'){
-			steps{
-			   script {
-			         docker_image = docker.build  registry
-			   }
-			}
-		}
-		stage('Deploy Docker Hub') {
-			steps{
-			   script {				 
-				     // echo 'Deploy Docker Hub concluido com sucesso !'
-				     docker.withRegistry( '', dockerhub_credentials ) {
-				     docker_image.push("latest")					
-				  }				  				
-			   }
-			}
-		}
+	stages { 		
         stage('Deploy App on k8s') {
             steps {
 				script {				  						
