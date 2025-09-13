@@ -55,7 +55,7 @@ pipeline {
 					   //  }
                    
                         withKubeConfig([credentialsId: 'minikube-secret',                         
-								serverUrl: 'https://127.0.0.1:32771', 
+								serverUrl: 'https://127.0.0.1:32776', 
 								namespace: 'default',
 								clusterName: 'minikube']) {	
 							dir ('chart') {
