@@ -45,7 +45,7 @@ pipeline {
             steps {
 				script {				  						
 
-                        withKubeConfig([credentialsId: 'kubeconfig-minikube']) {
+                        withKubeConfig([credentialsId: KUBECONFIG]) {
 							sh 'kubectl config view'
 							sh 'kubectl get nodes'
 						}
