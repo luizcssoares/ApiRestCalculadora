@@ -60,9 +60,9 @@ pipeline {
 						        //sh 'kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml'						        
 						//	}
 						//}
+						docker.withRegistry( '', dockerhub_credentials )
 
-                         dir ('chart') {		
-							docker.withRegistry( '', dockerhub_credentials )					
+                         dir ('chart') {														
 							//sh 'helm registry login docker.io --username luizcssoares --password Lucas@2001'
                             sh 'helm upgrade --install apirestcalculadora chart --set image.repository=apirestcalculadora --set image.tag=latest'
 						    //sh 'helm upgrade apirestcalculadora .'
