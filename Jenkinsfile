@@ -54,6 +54,7 @@ pipeline {
 					   //    echo 'Chibata Preta'
 					   //  }
                        withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {
+						  sh 'helm dependencies update'
                           sh 'helm install apirestcalculadora .'
                        }                       
 
