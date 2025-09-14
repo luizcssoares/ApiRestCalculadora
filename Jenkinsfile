@@ -54,7 +54,10 @@ pipeline {
 					   //    echo 'Chibata Preta'
 					   //  }
                        withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {						  
-                          sh 'helm install apirestcalculadora ./chart'
+						 dir ('chart') {
+							sh 'ls'
+                            sh 'helm install apirestcalculadora .'
+						 }
                        }                       
 
                        // withKubeConfig([credentialsId: 'minikube-secret',                         
