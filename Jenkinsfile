@@ -7,7 +7,7 @@ pipeline {
 		docker_image = ''
 		IMAGE_TAG = "latest"
         NAMESPACE = "default"
-		KUBECONFIG = credentials('minikube-kubeconfig')
+		//KUBECONFIG = credentials('minikube-kubeconfig')
 	}
 	stages { 
 		stage('GIT pull') {			
@@ -49,20 +49,20 @@ pipeline {
             }
         }
 
-        stage('Deploy with Helm') {
-            steps {
-                //sh 'helm upgrade --install exemplo ./chart --namespace default'
-				withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {						  
-						 dir ('chart') {
-							sh 'helm upgrade apirestcalculadora .'
-                            //sh 'helm install apirestcalculadora .'
-						 }
-                }                       
-            }
-        }
-        //stage('Deploy App on k8s') {
+        //stage('Deploy with Helm') {
         //    steps {
-		//		script {				  						
+                //sh 'helm upgrade --install exemplo ./chart --namespace default'
+		//		withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {						  
+		//				 dir ('chart') {
+		//					sh 'helm upgrade apirestcalculadora .'
+                            //sh 'helm install apirestcalculadora .'
+		//				 }
+        //               }                       
+        //    }
+        //}
+        stage('Deploy App on k8s') {
+            steps {
+				script {				  						
                 
 					   // withKubeConfig([credentialsId: 'secrets', serverUrl: 'https://127.0.0.1:32771']) {
 					   //	 dir ('chart') {
@@ -72,12 +72,12 @@ pipeline {
 					   //	 }
 					   //    echo 'Chibata Preta'
 					   //  }
-        //               withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {						  
-		//				 dir ('chart') {
-		//					sh 'helm upgrade apirestcalculadora .'
+                       withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {						  
+						 dir ('chart') {
+							sh 'helm upgrade apirestcalculadora .'
                             //sh 'helm install apirestcalculadora .'
-		//				 }
-        //               }                       
+						 }
+                       }                       
 
                        // withKubeConfig([credentialsId: 'minikube-secret',                         
 						//		serverUrl: 'https://127.0.0.1:32776', 
@@ -90,8 +90,8 @@ pipeline {
 								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
 						//	}
 						//}
-		//		}
-        //    }
-        //}
+				}
+            }
+        }
 	}
 }
