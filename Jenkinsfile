@@ -41,25 +41,7 @@ pipeline {
 				  }				  				
 			   }
 			}
-		}
-		stage('Check Cluster') {
-            steps {
-                sh 'kubectl cluster-info'
-                sh 'kubectl get nodes'
-            }
-        }
-
-        //stage('Deploy with Helm') {
-        //    steps {
-                //sh 'helm upgrade --install exemplo ./chart --namespace default'
-		//		withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {						  
-		//				 dir ('chart') {
-		//					sh 'helm upgrade apirestcalculadora .'
-                            //sh 'helm install apirestcalculadora .'
-		//				 }
-        //               }                       
-        //    }
-        //}
+		}		
         stage('Deploy App on k8s') {
             steps {
 				script {				  						
