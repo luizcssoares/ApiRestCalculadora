@@ -55,8 +55,8 @@ pipeline {
 					   //  }
                        withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {						  
 						 dir ('chart') {
-							sh 'ls'
-                            sh 'helm install apirestcalculadora .'
+							sh 'helm upgrade apirestcalculadora .'
+                            //sh 'helm install apirestcalculadora .'
 						 }
                        }                       
 
