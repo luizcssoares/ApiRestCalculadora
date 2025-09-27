@@ -7,7 +7,7 @@ pipeline {
 		docker_image = ''
 		IMAGE_TAG = "latest"
         NAMESPACE = "default"
-		KIND_CONTEXT = "luiz"
+		KIND_CONTEXT = "kind-luiz"
 		//KUBECONFIG = credentials('minikube-kubeconfig')
 	}
 	stages { 
