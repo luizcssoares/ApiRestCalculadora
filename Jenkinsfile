@@ -57,9 +57,8 @@ pipeline {
 					   //    echo 'Chibata Preta'
 					   //  }                       
 					   dir ('chart') {
-						  sh """ 
-						  kubectl config use-context $KIND_CONTEXT
-                          helm install apirestcalculadora . \
+						  sh """ 						  
+						  kubectl get pods                          
 						  """
 					    }
                                        
