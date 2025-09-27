@@ -56,8 +56,10 @@ pipeline {
 					   //    echo 'Chibata Preta'
 					   //  }                       
 					   dir ('chart') {
-						  //sh 'kubectl config use-context $KIND_CONTEXT'
-                          sh 'helm install apirestcalculadora .'
+						  sh """ 
+						  kubectl config use-context $KIND_CONTEXT
+                          helm install apirestcalculadora .
+						  """
 					    }
                                        
                        // withKubeConfig([credentialsId: 'minikube-secret',                         
