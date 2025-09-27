@@ -56,7 +56,7 @@ pipeline {
 					   //    echo 'Chibata Preta'
 					   //  }                       
 					   dir ('chart') {
-						  sh 'kubectl config use-context $KIND_CONTEXT'							
+						  //sh 'kubectl config use-context $KIND_CONTEXT'							
                           sh 'helm install apirestcalculadora .'
 					    }
                                        
