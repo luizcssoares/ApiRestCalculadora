@@ -7,6 +7,7 @@ pipeline {
 		docker_image = ''
 		IMAGE_TAG = "latest"
         NAMESPACE = "default"
+		KIND_CONTEXT = "kind-luiz"
 		//KUBECONFIG = credentials('minikube-kubeconfig')
 	}
 	stages { 
@@ -53,14 +54,12 @@ pipeline {
 							     //sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
 					   //	 }
 					   //    echo 'Chibata Preta'
-					   //  }
-                       withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {						  
-						 dir ('chart') {
-							//sh 'helm upgrade apirestcalculadora .'
-                            sh 'helm install apirestcalculadora .'
-						 }
-                       }                       
-
+					   //  }                       
+					   dir ('chart') {
+						  sh 'kubectl config use-context $KIND_CONTEXT'							
+                          sh 'helm install apirestcalculadora .'
+					    }
+                                       
                        // withKubeConfig([credentialsId: 'minikube-secret',                         
 						//		serverUrl: 'https://127.0.0.1:32776', 
 						//		namespace: 'default',
