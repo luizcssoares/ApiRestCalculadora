@@ -8,6 +8,7 @@ pipeline {
 		IMAGE_TAG = "latest"
         NAMESPACE = "default"
 		KIND_CONTEXT = "kind-luiz"
+		KUBECONFIG = credentials('jenkins-kubeconfig')
 		//KUBECONFIG = credentials('minikube-kubeconfig')
 	}
 	stages { 
@@ -56,9 +57,9 @@ pipeline {
 					   //    echo 'Chibata Preta'
 					   //  }                       
 					   dir ('chart') {
-						  sh """ 
-						  kubectl config use-context $KIND_CONTEXT
-                          helm install apirestcalculadora .
+						  sh """						  
+                          helm install apirestcalculadora . \
+						  --kubeconfig=$KUBECONFIG
 						  """
 					    }
                                        
