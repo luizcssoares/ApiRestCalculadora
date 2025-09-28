@@ -48,7 +48,7 @@ pipeline {
             steps {
 				script {				  						
                 
-					   withKubeConfig([credentialsId: 'kubeconfig-secret']) {
+					   // withKubeConfig([credentialsId: 'secrets', serverUrl: 'https://127.0.0.1:32771']) {
 					   //	 dir ('chart') {
 					   //	 	sh 'ls'
 					   //	     sh 'helm install apirestcalculadora .'
@@ -56,22 +56,22 @@ pipeline {
 					   //	 }
 					   //    echo 'Chibata Preta'
 					   //  }                       
-					   dir ('chart') {
-						  sh 'kubectl get nodes'
-					    }
+
+					   //dir ('chart') {
+					   //sh 'kubectl get nodes'
+					   //}
                                        
-                       // withKubeConfig([credentialsId: 'minikube-secret',                         
-						//		serverUrl: 'https://127.0.0.1:32776', 
-						//		namespace: 'default',
-						//		clusterName: 'minikube']) {	
-						//	dir ('chart') {
-						//		sh 'ls'
-								//sh 'kubectl get pods'
-						 //       sh 'helm install apirestcalculadora . --kubeconfig ~/.kube/config'
+                       withKubeConfig([string(credentialsId: 'kubeconfig-secret',                         
+								serverUrl: 'https://172.19.0.3:44067', 
+								namespace: 'default',
+								clusterName: 'kind-luiz')]) {	
+							dir ('chart') {
+								sh 'ls'
+						        sh 'kubectl get pods'
+						        //sh 'helm install apirestcalculadora . --kubeconfig ~/.kube/config'
 								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
-						//	}
-						//}
-					    }
+							}
+					   }
 				}
             }
         }
