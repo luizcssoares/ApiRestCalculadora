@@ -62,7 +62,7 @@ pipeline {
 					   //}
                                        
                        withKubeConfig([credentialsId: 'kubeconfig-secret',                         
-					  		serverUrl: 'https://172.19.0.3:44067', 
+					  		serverUrl: 'https://127.0.0.1:44067', 
 							namespace: 'default',
 							clusterName: 'kind-luiz']) {	
 							dir ('chart') {
