@@ -62,7 +62,7 @@ pipeline {
 					   //}
                                        
                        withKubeConfig([credentialsId: 'kubeconfig-secret',                         
-					  		serverUrl: 'https://127.0.0.1:33945', 
+					  		serverUrl: 'https://kind-cluster-control-plane:6443', 
 							namespace: 'default',
 							clusterName: 'kind-cluster']) {	
 							dir ('chart') {
