@@ -48,7 +48,7 @@ pipeline {
             steps {
 				script {				  						
                 
-					   // withKubeConfig([credentialsId: 'secrets', serverUrl: 'https://127.0.0.1:32771']) {
+					   withKubeConfig([credentialsId: 'kubeconfig-secret']) {
 					   //	 dir ('chart') {
 					   //	 	sh 'ls'
 					   //	     sh 'helm install apirestcalculadora .'
@@ -71,6 +71,7 @@ pipeline {
 								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
 						//	}
 						//}
+					    }
 				}
             }
         }
