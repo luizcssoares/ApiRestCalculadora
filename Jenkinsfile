@@ -61,7 +61,7 @@ pipeline {
 					   //   sh 'kubectl get nodes'
 					   //}
                                        
-                       withKubeConfig([credentialsId: 'kubeconfig-secret']) {	
+                       withKubeConfig([credentialsId: 'kind-kubeconfig-internal']) {	
 							dir ('chart') {
 								sh 'ls'
 						        sh 'kubectl get pods'
