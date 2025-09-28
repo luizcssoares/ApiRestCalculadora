@@ -60,15 +60,30 @@ pipeline {
 					   //dir ('chart') {
 					   //   sh 'kubectl get nodes'
 					   //}
-                                       
-                       withKubeConfig([credentialsId: 'kubeconfig-secret']) {	
-							dir ('chart') {
-								sh 'ls'
-						        sh 'kubectl get pods'
-						        //sh 'helm install apirestcalculadora . --kubeconfig ~/.kube/config'
-								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
+
+					   withKubeConfig(caCertificate: 'LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMvakNDQWVhZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJMU1Ea3lPREEyTlRRek9Gb1hEVE0xTURreU5qQTJOVFF6T0Zvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTE14Ck82bEJPOW9ZVG5pSURvSjEzWVgyaUNuRFJseXlXVHIyc3hEWHRmdUhLNGozUzBZeHVCazFNMGsvUTFTRjd1ZUcKZVpKOVJXZUxJSExUb3dJekVscWJMVVErbHhDZTZEKytNTXFtR3YwR0tBazVNcHhCRFdVYTJOR1ZDMDFqOTgrdQp0RmVpalh2c3grRVB4bHdFYmxTTXJxT2xPV3ZXNEswaFQyUlRqSFA5Y0IrZW1LbkV2NWlRNGdYaWtZV1JQYzFyCmhmVzc2R3dHOXF4aFd1OUk3ZkNKcW5vaS9JWTBUM2tPYVZGVm1MazNZakpJTWtubHJTTnFISThQQnFjNXBDcVEKdHBMVjFSZk5HOHcvMVhpcE5yM0hOVjlON3kzdmRTd2JPQzNuek1pWVdHZlF0MEFxajdiYjdvRHJKcTBLNmhHeApFYmVtbWsvNW9MbjBYOHB2RDNjQ0F3RUFBYU5aTUZjd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZNaFVrYUVPaE9lcUl6dTNuY0dWa2k2Qy9FSXJNQlVHQTFVZEVRUU8KTUF5Q0NtdDFZbVZ5Ym1WMFpYTXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBR1p2eXcvb1doTVZaanR6UlZSUApzNTJVeXo2L2tGb2FsVjg5U2tXMTdtanJPRjBmWkZXRUxlQjM5MEV6Y1R1dFQzZWs2endhaG9ONmxjNEpCQmZyCnA2WDRMN2J3U3RKM3R4R2kwZ2Mzb3E5NWdZbFgrWXpBamZEOUJrWWRCOU0veGZvbUpMcVFxdzcrckhCcFUwTi8KUzVGWVhhcTBVL0RrZHg0UlQ4YWgrY0trT0dsWHNMS00ydjVEWTdZTUhzNnZHS201ajFWdTQvMHJyR2RXY1lGZgpMckprakFoQ0ZDV09zTEZ2Y2hsZmVBK2RkakZVY2VGTFhvZURkNUNsNDViRHhjYVBQVmR5MDF6MXFFTFZFYVM5CkE0bHJNWUdrVXBzbGtQMjZVdWF2b2hUNEFtMkJ4OVFOOCt6Z3hKQ0ZFeGJmRU5TcHMyVnhUNEJqcUo3MHdNakkKSmZrPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==', 
+					                   clusterName: 'kind-kind-cluster', 
+									   contextName: 'kind-kind-cluster', 
+									   credentialsId: 'kubeconfig-secret', 
+									   namespace: 'default', 
+									   restrictKubeConfigAccess: false, 
+									   serverUrl: 'https://172.19.0.2:6443') {
+    						dir ('chart') {
+							   sh 'ls'
+						       sh 'kubectl get pods'
+						       //sh 'helm install apirestcalculadora . --kubeconfig ~/.kube/config'
+						       //sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
 							}
 					   }
+                                       
+                       //withKubeConfig([credentialsId: 'kubeconfig-secret']) {	
+					   //dir ('chart') {
+						//		sh 'ls'
+						//        sh 'kubectl get pods'
+						        //sh 'helm install apirestcalculadora . --kubeconfig ~/.kube/config'
+								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
+						//	}
+					   //}
 				}
             }
         }
