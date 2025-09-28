@@ -62,9 +62,9 @@ pipeline {
 					   //}
                                        
                        withKubeConfig([credentialsId: 'kubeconfig-secret',                         
-					  		serverUrl: 'https://127.0.0.1:44067', 
+					  		serverUrl: 'https://127.0.0.1:33945', 
 							namespace: 'default',
-							clusterName: 'kind-luiz']) {	
+							clusterName: 'kind-cluster']) {	
 							dir ('chart') {
 								sh 'ls'
 						        sh 'kubectl get pods'
