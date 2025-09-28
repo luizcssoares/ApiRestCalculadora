@@ -57,7 +57,7 @@ pipeline {
 					   //    echo 'Chibata Preta'
 					   //  }                       
 					   dir ('chart') {
-						  sh 'kubectl get pods'
+						  sh 'kubectl get nodes'
 					    }
                                        
                        // withKubeConfig([credentialsId: 'minikube-secret',                         
