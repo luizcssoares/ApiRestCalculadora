@@ -61,10 +61,10 @@ pipeline {
 					   //   sh 'kubectl get nodes'
 					   //}
                                        
-                       withKubeConfig([string(credentialsId: 'kubeconfig-secret',                         
+                       withKubeConfig([credentialsId: 'kubeconfig-secret',                         
 					  		serverUrl: 'https://172.19.0.3:44067', 
-								namespace: 'default',
-								clusterName: 'kind-luiz')]) {	
+							namespace: 'default',
+							clusterName: 'kind-luiz']) {	
 							dir ('chart') {
 								sh 'ls'
 						        sh 'kubectl get pods'
