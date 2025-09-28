@@ -61,10 +61,7 @@ pipeline {
 					   //   sh 'kubectl get nodes'
 					   //}
                                        
-                       withKubeConfig([credentialsId: 'kubeconfig-secret',                         
-					  		serverUrl: 'https://kind-cluster-control-plane:6443', 
-							namespace: 'default',
-							clusterName: 'kind-cluster']) {	
+                       withKubeConfig([credentialsId: 'kubeconfig-secret']) {	
 							dir ('chart') {
 								sh 'ls'
 						        sh 'kubectl get pods'
