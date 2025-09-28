@@ -57,21 +57,21 @@ pipeline {
 					   //    echo 'Chibata Preta'
 					   //  }                       
 
-					   //dir ('chart') {
-					   //sh 'kubectl get nodes'
-					   //}
+					   dir ('chart') {
+					      sh 'kubectl get nodes'
+					   }
                                        
-                       withKubeConfig([string(credentialsId: 'kubeconfig-secret',                         
-								serverUrl: 'https://172.19.0.3:44067', 
-								namespace: 'default',
-								clusterName: 'kind-luiz')]) {	
-							dir ('chart') {
-								sh 'ls'
-						        sh 'kubectl get pods'
+                       //withKubeConfig([string(credentialsId: 'kubeconfig-secret',                         
+					  //		serverUrl: 'https://172.19.0.3:44067', 
+					//			namespace: 'default',
+					//			clusterName: 'kind-luiz')]) {	
+					//		dir ('chart') {
+					//			sh 'ls'
+					//	        sh 'kubectl get pods'
 						        //sh 'helm install apirestcalculadora . --kubeconfig ~/.kube/config'
 								//sh 'helm upgrade --install apirestcalculadora chart --namespace default --set image.repository=apirestcalculadora --set image.tag=latest'
-							}
-					   }
+					//		}
+					//   }
 				}
             }
         }
