@@ -61,7 +61,7 @@ pipeline {
 					   //   sh 'kubectl get nodes'
 					   //}
 
-					   withKubeConfig(caCertificate: '-----BEGIN CERTIFICATE-----
+					   withKubeConfig(caCertificate: '''-----BEGIN CERTIFICATE-----
 MIIC/jCCAeagAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl
 cm5ldGVzMB4XDTI1MDkyODA2NTQzOFoXDTM1MDkyNjA2NTQzOFowFTETMBEGA1UE
 AxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALMx
@@ -79,7 +79,7 @@ S5FYXaq0U/Dkdx4RT8ah+cKkOGlXsLKM2v5DY7YMHs6vGKm5j1Vu4/0rrGdWcYFf
 LrJkjAhCFCWOsLFvchlfeA+ddjFUceFLXoeDd5Cl45bDxcaPPVdy01z1qELVEaS9
 A4lrMYGkUpslkP26UuavohT4Am2Bx9QN8+zgxJCFExbfENSps2VxT4BjqJ70wMjI
 Jfk=
------END CERTIFICATE-----',
+-----END CERTIFICATE-----''',
 					                   clusterName: 'kind-kind-cluster', 
 									   contextName: 'kind-kind-cluster', 
 									   credentialsId: 'kubeconfig-secret', 
