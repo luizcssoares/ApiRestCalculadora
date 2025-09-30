@@ -9,7 +9,8 @@ replicaCount: 1
 image:
   repository: luizcssoares/apirestcalculadora
   # This sets the pull policy for images.
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
+  #pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
@@ -54,7 +55,8 @@ securityContext: {}
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-  type: NodePort
+  #type: NodePort
+  type: ClusterIP
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
   port: 8088  
 
