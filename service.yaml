@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app: apirestcalculadora
-  type: NodePort
+  type: ClusterIP
   ports:
   - protocol: "TCP"
     port: 80
