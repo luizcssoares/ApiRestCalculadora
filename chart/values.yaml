@@ -9,8 +9,8 @@ replicaCount: 1
 image:
   repository: luizcssoares/apirestcalculadora
   # This sets the pull policy for images.
-  pullPolicy: IfNotPresent
-  #pullPolicy: Always
+  #pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
   
